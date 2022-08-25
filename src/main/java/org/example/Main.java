@@ -9,10 +9,14 @@ public class Main {
             if (row > 14 || row <= 0) {
                 throw new NumberFormatException();
             }
+            row--;
         } catch (NumberFormatException exception) {
             System.out.println("Некорректно введен номер столбца");
+            return;
         }
 
         AirportSearcher airportSearcher = new AirportSearcher(row);
+        System.out.println(airportSearcher);
+        airportSearcher.search();
     }
 }
