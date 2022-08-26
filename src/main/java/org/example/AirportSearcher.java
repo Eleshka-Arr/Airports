@@ -3,13 +3,10 @@ package org.example;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class AirportSearcher {
-    private static final String CSV_PATH = "airports.csv";
+    private static final String CSV_NAME = "airports.csv";
     private final int row;
 
     private final List<String[]> data;
@@ -46,10 +43,10 @@ public class AirportSearcher {
         return index;
     }
 
-    private List<String[]> readFile() {
+    private SearchingResult<List<String[]>> search(String forSearching) {
         FileInputStream fis = null;
         try {
-            fis = new FileInputStream(CSV_PATH);
+            fis = new FileInputStream(Objects.requireNonNull(getClass().getClassLoader().getResource(CSV_NAME)).getFile());
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
         }
@@ -65,6 +62,8 @@ public class AirportSearcher {
 
         return result;
     }
+
+
 
 
     private void sortByColumn(int row, List<String[]> list) {
