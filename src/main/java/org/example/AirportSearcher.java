@@ -14,16 +14,22 @@ public class AirportSearcher {
     }
 
     public void start() {
-        SearchingResult<List<String[]>> result = search();
-        System.out.println(resultToString(result));
+        while (true) {
+            System.out.print("Введите строку: ");
+            Scanner scanner = new Scanner(System.in);
+            String forSearching = scanner.nextLine();
+
+            if ("!quit".equals(forSearching)) {
+                return;
+            }
+
+            SearchingResult<List<String[]>> result = searchAndSort(forSearching);
+            System.out.println(resultToString(result));
+        }
     }
 
 
-    public SearchingResult<List<String[]>> search() {
-        System.out.print("Введите строку: ");
-        Scanner scanner = new Scanner(System.in);
-        String forSearching = scanner.nextLine();
-
+    public SearchingResult<List<String[]>> searchAndSort(String forSearching) {
         SearchingResult<List<String[]>> results = search(forSearching);
         results.getResult().sort(new LinesComparator(row));
         return results;
