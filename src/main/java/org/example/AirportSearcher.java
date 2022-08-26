@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class AirportSearcher {
-    private static final String CSV_NAME = "airport.csv";
+    private static final String CSV_NAME = "airports.csv";
     private final int row;
     private final String csv;
 
