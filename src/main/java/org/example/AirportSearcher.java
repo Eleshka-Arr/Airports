@@ -9,13 +9,15 @@ public class AirportSearcher {
     private static final String CSV_NAME = "airports.csv";
     private final int row;
 
-    private final List<String[]> data;
-
     AirportSearcher(int row) {
-        data = readFile();
-        sortByColumn(row, data);
         this.row = row;
     }
+
+    public void start() {
+        SearchingResult<List<String[]>> result = search();
+        System.out.println(resultToString(result));
+    }
+
 
     public SearchingResult<List<String[]>> search() {
         System.out.print("Введите строку: ");
@@ -39,6 +41,9 @@ public class AirportSearcher {
             }
             stringBuilder.append("]").append("\n");
         }
+        stringBuilder.append("Количество найденных строк: ").append(result.getResult().size()).append(" ");
+        stringBuilder.append("Время, затраченное на поиск: ").append(result.getTime()).append("\n\n");
+
 
         return stringBuilder.toString();
     }
@@ -86,23 +91,6 @@ public class AirportSearcher {
         long finish = System.currentTimeMillis();
 
         return new SearchingResult<>(result, finish - start);
-    }
-
-
-
-
-    private void sortByColumn(int row, List<String[]> list) {
-        Collections.sort(list, new LinesComparator(row));
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        int i = 0;
-        for (String[] line : data) {
-            sb.append(i).append("@").append(line[row]).append("\n");
-            i++;
-        }
-        return sb.toString();
     }
 }
 
