@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f3ea47c-374e-434a-a601-300d1b69c554" name="Changes" comment="Добавлен поиск">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SearchingResult.java" afterDir="false" />
+    <list default="true" id="2f3ea47c-374e-434a-a601-300d1b69c554" name="Changes" comment="Перенесены файлы в resourses">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airports.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/airports.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AirportSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AirportSearcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +51,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\IdeaProjects\Airports\src\main\resources" />
       <recent name="C:\Users\Admin\IdeaProjects\Airports" />
     </key>
   </component>
@@ -101,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661437538159</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Перенесены файлы в resourses">
+      <created>1661520031510</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661520031510</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,14 +124,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="Добавлен поиск" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен поиск" />
+    <MESSAGE value="Перенесены файлы в resourses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Перенесены файлы в resourses" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/AirportSearcher.java</url>
-          <line>31</line>
+          <line>46</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

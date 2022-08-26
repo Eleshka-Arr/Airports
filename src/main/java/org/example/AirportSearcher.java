@@ -17,12 +17,30 @@ public class AirportSearcher {
         this.row = row;
     }
 
-    public void search() {
+    public SearchingResult<List<String[]>> search() {
         System.out.print("Введите строку: ");
         Scanner scanner = new Scanner(System.in);
         String forSearching = scanner.nextLine();
-        int i = runBinarySearchIteratively(data, forSearching, 0, data.size() - 1);
-        System.out.println(i);
+
+        SearchingResult<List<String[]>> results = search(forSearching);
+        results.getResult().sort(new LinesComparator(row));
+        return results;
+    }
+
+    public String resultToString(SearchingResult<List<String[]>> result) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String[] line : result.getResult()) {
+            stringBuilder.append(line[row]).append("[");
+            for (int i = 0; i < line.length; i++) {
+                stringBuilder.append(line[i]);
+                if(i != line.length - 1) {
+                    stringBuilder.append(",");
+                }
+            }
+            stringBuilder.append("]").append("\n");
+        }
+
+        return stringBuilder.toString();
     }
 
     public int runBinarySearchIteratively(List<String[]> sortedArray, String key, int low, int high) {
@@ -54,13 +72,20 @@ public class AirportSearcher {
         Scanner scanner = new Scanner(fis, StandardCharsets.UTF_8);
         List<String[]> result = new ArrayList<>();
 
+        long start = System.currentTimeMillis();
+
         while (scanner.hasNextLine()) {
             String str = scanner.nextLine();
             String[] line = str.split(",");
-            result.add(line);
+
+            if(line[row].startsWith(forSearching)) {
+                result.add(line);
+            }
         }
 
-        return result;
+        long finish = System.currentTimeMillis();
+
+        return new SearchingResult<>(result, finish - start);
     }
 
 
