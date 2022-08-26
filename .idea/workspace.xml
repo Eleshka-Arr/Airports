@@ -7,6 +7,7 @@
     <list default="true" id="2f3ea47c-374e-434a-a601-300d1b69c554" name="Changes" comment="Добавлен поиск">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AirportSearcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/AirportSearcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LinesComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LinesComparator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661523552204</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Добавлен поиск">
+      <created>1661524327410</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1661524327410</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,16 +150,5 @@
     <MESSAGE value="Добавлен вывод результатов" />
     <MESSAGE value="Добавлен поиск" />
     <option name="LAST_COMMIT_MESSAGE" value="Добавлен поиск" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/AirportSearcher.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

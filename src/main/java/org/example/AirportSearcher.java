@@ -1,22 +1,33 @@
 package org.example;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class AirportSearcher {
-    private static final String CSV_NAME = "airports.csv";
+    private static final String CSV_NAME = "airport.csv";
     private final int row;
+    private final String csv;
 
     AirportSearcher(int row) {
         this.row = row;
+        URL url = getClass().getClassLoader().getResource(CSV_NAME);
+        if (url == null) {
+            throw new IllegalArgumentException("Файл с именем " + CSV_NAME + " не найден");
+        }
+        csv = url.getFile();
     }
 
     public void start() {
+        Scanner scanner = new Scanner(System.in);
+
         while (true) {
             System.out.print("Введите строку: ");
-            Scanner scanner = new Scanner(System.in);
+
             String forSearching = scanner.nextLine();
 
             if ("!quit".equals(forSearching)) {
@@ -47,35 +58,17 @@ public class AirportSearcher {
             }
             stringBuilder.append("]").append("\n");
         }
+
         stringBuilder.append("Количество найденных строк: ").append(result.getResult().size()).append(" ");
         stringBuilder.append("Время, затраченное на поиск: ").append(result.getTime()).append("\n\n");
 
-
         return stringBuilder.toString();
-    }
-
-    public int runBinarySearchIteratively(List<String[]> sortedArray, String key, int low, int high) {
-        int index = Integer.MAX_VALUE;
-        LinesComparator linesComparator = new LinesComparator(row);
-
-        while (low <= high) {
-            int mid = low  + ((high - low) / 2);
-            if (linesComparator.compare(sortedArray.get(mid), key) < 0 /*sortedArray[mid] < key*/) {
-                low = mid + 1;
-            } else if (linesComparator.compare(sortedArray.get(mid), key) > 0 /*sortedArray[mid] > key*/) {
-                high = mid - 1;
-            } else if (sortedArray.get(mid)[row].startsWith(key)/*linesComparator.compare(sortedArray.get(mid), key) == 0 *//*sortedArray[mid] == key*/) {
-                index = mid;
-                break;
-            }
-        }
-        return index;
     }
 
     private SearchingResult<List<String[]>> search(String forSearching) {
         FileInputStream fis = null;
         try {
-            fis = new FileInputStream(Objects.requireNonNull(getClass().getClassLoader().getResource(CSV_NAME)).getFile());
+            fis = new FileInputStream(csv);
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
         }
@@ -95,6 +88,12 @@ public class AirportSearcher {
         }
 
         long finish = System.currentTimeMillis();
+
+        try {
+            fis.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         return new SearchingResult<>(result, finish - start);
     }
