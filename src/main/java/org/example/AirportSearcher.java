@@ -65,7 +65,10 @@ public class AirportSearcher {
         return stringBuilder.toString();
     }
 
+
     private SearchingResult<List<String[]>> search(String forSearching) {
+        forSearching = forSearching.toLowerCase();
+
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(csv);
@@ -82,7 +85,14 @@ public class AirportSearcher {
             String str = scanner.nextLine();
             String[] line = str.split(",");
 
-            if(line[row].startsWith(forSearching)) {
+            boolean expression;
+            if (line[row].startsWith("\"")) {
+                expression = line[row].substring(1, line[row].length() - 1).toLowerCase().startsWith(forSearching);
+            }
+            else {
+                expression = line[row].startsWith(forSearching);
+            }
+            if(expression) {
                 result.add(line);
             }
         }
