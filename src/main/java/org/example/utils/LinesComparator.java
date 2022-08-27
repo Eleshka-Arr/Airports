@@ -5,7 +5,7 @@ import java.util.Comparator;
 public class LinesComparator implements Comparator<String[]> {
     private final int row;
 
-    LinesComparator(int row){
+    public LinesComparator(int row){
         this.row = row;
     }
 

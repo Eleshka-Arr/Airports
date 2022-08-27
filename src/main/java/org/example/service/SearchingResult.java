@@ -4,7 +4,7 @@ public class SearchingResult <T> {
     private final T result;
     private final long time;
 
-    SearchingResult(T result, long time) {
+    public SearchingResult(T result, long time) {
         this.result = result;
         this.time = time;
     }

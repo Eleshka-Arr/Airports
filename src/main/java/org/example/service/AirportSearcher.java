@@ -17,7 +17,7 @@ public class AirportSearcher {
     private final int row;
     private final String csv;
 
-    AirportSearcher(int row) {
+    public AirportSearcher(int row) {
         this.row = row;
 
         URL url = getClass().getClassLoader().getResource(CSV_NAME);
@@ -44,14 +44,14 @@ public class AirportSearcher {
         }
     }
 
-    public SearchingResult<List<String[]>> searchAndSort(String forSearching) {
+    private SearchingResult<List<String[]>> searchAndSort(String forSearching) {
         SearchingResult<List<String[]>> results = search(forSearching);
         results.getResult().sort(new LinesComparator(row));
 
         return results;
     }
 
-    public String resultToString(SearchingResult<List<String[]>> result) {
+    private String resultToString(SearchingResult<List<String[]>> result) {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (String[] line : result.getResult()) {
