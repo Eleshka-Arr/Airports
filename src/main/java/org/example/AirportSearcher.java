@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class AirportSearcher {
-    private static final String CSV_NAME = "airports.csv";
+    private static final String CSV_NAME = ApplicationSettings.CSV_NAME;
     private final int row;
     private final String csv;
 
