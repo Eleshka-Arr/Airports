@@ -1,4 +1,4 @@
-package org.example;
+package org.example.utils;
 
 public class ArgumentParser {
     public static int parseArgument(String[] args) {

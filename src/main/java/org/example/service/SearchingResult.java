@@ -1,4 +1,4 @@
-package org.example;
+package org.example.service;
 
 public class SearchingResult <T> {
     private final T result;

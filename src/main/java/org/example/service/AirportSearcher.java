@@ -1,4 +1,7 @@
-package org.example;
+package org.example.service;
+
+import org.example.ApplicationSettings;
+import org.example.utils.LinesComparator;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
